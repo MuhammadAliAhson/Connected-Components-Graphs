@@ -41,6 +41,38 @@ The output of the program is written to the 'Result1.txt' file. The strongly con
 
 ## Readme
 
+## Instructions
 
+This program reads an input file `task2.txt` which contains vertices and edges of a directed graph. It then divides the graph into 3 parts and finds strongly connected components (SCCs) for each part.
+
+To run this program, follow the steps below:
+
+1. Install Python 3.x or later on your computer.
+
+2. Create an input file `task2.txt` with vertices and edges of a directed graph. Each line of the file should have two integers separated by a space, representing a directed edge from the first vertex to the second vertex.
+
+3. Save the `task2.txt` file in the same directory where the Python program is located.
+
+4. Run the Python program by opening a terminal or command prompt, navigating to the directory where the Python program is located, and typing `python3 program_name.py` on the command line.
+
+5. The program will output the number of iterations and the SCCs for each part of the graph in the console.
+
+6. The program will also create a file named `Result2.txt` in the same directory, which contains the SCCs for each part of the graph. The SCCs are separated by a new line.
+
+## Code Explanation
+
+The code first imports the `defaultdict` and `time` modules from Python, and the `os` module for interacting with the operating system. 
+
+Next, a `Graph` class is defined, which represents a directed graph using an adjacency list. The class has the following methods:
+
+- `__init__(self, vertices)`: Initializes a `Graph` object with a given number of vertices, an empty adjacency list, and a file named `Result2.txt` for writing SCCs.
+- `addEdge(self, u, v)`: Adds a directed edge from vertex `u` to vertex `v` in the adjacency list.
+- `DFSUtil(self, v, visited)`: A utility function used by DFS to traverse the graph recursively. It marks the current vertex as visited, writes the vertex to the `Result2.txt` file, and recursively traverses all adjacent vertices.
+- `fillOrder(self, v, visited, stack)`: A utility function used to fill vertices in the stack according to their finishing times during the first DFS traversal.
+- `printSCCs(self)`: The main function that finds and prints all strongly connected components. It first fills the stack with vertices in order of their finishing times during the first DFS traversal. It then marks all vertices as not visited during the second DFS traversal and pops vertices from the stack to traverse them. If a vertex is not visited, it calls `DFSUtil` to traverse all its adjacent vertices and write the SCC to the `Result2.txt` file.
+
+After defining the `Graph` class, the program reads the `task2.txt` file to count the number of vertices and edges in the graph. It then creates a `Graph` object for each of the three parts of the graph and adds edges to each object by reading the `task2.txt` file again.
+
+Finally, the program prints the number of iterations and the SCCs for each part of the graph by calling the `printSCCs` method for each `Graph` object. The program also creates a file named `Result2.txt` which contains the SCCs for each part of the graph.
 
 
