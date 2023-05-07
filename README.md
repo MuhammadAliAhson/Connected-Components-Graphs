@@ -35,3 +35,12 @@ python scc.py
 
 ### Output
 The output of the program is written to the 'Result1.txt' file. The strongly connected components of the graphs are written in this file.
+
+
+## Code_To_Find_Connected_Nodes_2.py
+
+## Readme
+
+
+
+
